@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="camel.css">
+</head>
+
+<style>
+h1{
+    
+    color: white;
+    text-align: center;
+    font-size: 100px;
+    padding-top: 10px;
+   color: #D0F8FF;
+   text-shadow: 0 0 5px #A5F1FF, 0 0 5px #A5F1FF,
+             0 0 5px #A5F1FF, 0 0 5px #A5F1FF,
+             0 0 10px #A5F1FF;
+}
+
+
+body {font-family: Verdana,sans-serif;margin:0;
+	background: url(egy3.jpg); background-size: cover;
+}
+.images {
+	display:none
+
+}
+
+
+
+.slideshow{
+  max-width: 1000px;
+ max-height: 400px;
+ position: relative;
+  margin: auto;
+  
+}
+
+
+.back-button, .forward-button {
+  cursor: pointer;
+  position: absolute;
+  top: 70%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: red;
+  font-weight: bold;
+  font-size: 100px;
+  transition: 0.6s ease;
+  border-radius: 0 200px 200px 0;
+}
+
+
+.forward-button{
+  right: 0;
+  border-radius: 200px 0 0 200px;
+}
+
+
+.back-button:hover, .forward-button:hover{
+  background-color: rgba(0,0,0,0.2);
+}
+
+
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+
+.numbertext {
+  color: #f2f2f2;
+  font-size: 20px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+  
+}
+
+
+.dot {
+  cursor:pointer;
+  height: 13px;
+  width: 13px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+</style>
+<body>
+<h1>My Trip to Egypt</h1>
+
+<div class="slideshow">
+
+<div class="images">
+
+  <div class="numbertext">1 / 10</div>
+  <img src="1.jpg" width="1000px" height="600px">
+  
+</div>
+
+<div class="images">
+  <div class="numbertext">2 / 10</div>
+  <img src="2.jpg" width="1000px" height="600px" >
+  
+</div>
+
+<div class="images">
+  <div class="numbertext">3 / 10</div>
+  <img src="3.jpg" width="1000px" height="600px" >
+ 
+</div>
+<div class="images">
+  <div class="numbertext">4 / 10</div>
+  <img src="4.jpg" width="1000px" height="600px" >
+ 
+</div>
+<div class="images">
+  <div class="numbertext">5 / 10</div>
+  <img src="5.jpg" width="1000px" height="600px">
+ 
+</div>
+<div class="images">
+  <div class="numbertext">6 / 10</div>
+  <img src="6.jpg" width="1000px" height="600px">
+ 
+</div>
+<div class="images">
+  <div class="numbertext">7 / 10</div>
+  <img src="7.jpg" width="1000px" height="600px">
+ 
+</div>
+<div class="images">
+  <div class="numbertext">8 / 10</div>
+  <img src="8.jpg" width="1000px" height="600px">
+ 
+</div>
+<div class="images">
+  <div class="numbertext">9 / 10</div>
+  <img src="9.jpg" width="1000px" height="600px">
+ 
+</div>
+<div class="images">
+  <div class="numbertext">10 / 10</div>
+  <img src="10.jpg" width="1000px" height="600px">
+  </div>
+
+
+<a class="back-button" onclick="plusDivs(-1)">&#10094</a>
+<a class="forward-button" onclick="plusDivs(1)">&#10095</a>
+
+
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+</div>
+<div>
+   <img src="A.gif" id="A" alt="A"/>
+   <img src="A.gif" id="B" alt="A"/>
+   <img src="A.gif" id="C" alt="A"/>
+   <img src="A.gif" id="D" alt="A"/>
+</div>
+
+<script>
+var slideIndex = 1;
+showDiv(slideIndex);
+
+function plusDivs(n) {
+  showDiv(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showDiv(slideIndex = n);
+}
+
+function showDiv(n) {
+  var i;
+  var slides = document.getElementsByClassName("images");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 0}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+}
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,61 @@
+#A,#B,#C,#D{
+	position:absolute;
+	left:-5%; 
+	animation:mymove 8s infinite;	
+	animation-direction:normal;	
+	
+	-moz-animation:mymove 8s infinite;
+	-moz-animation-direction:normal;		
+	
+	-webkit-animation:mymove 8s infinite;
+	-webkit-animation-direction:normal;	
+
+	-o-animation:mymove 8s infinite;
+	-o-animation-direction:normal;
+}
+
+
+#A{
+	animation-delay:0s;
+	-webkit-animation-delay: 0s;
+}
+
+#B{
+	animation-delay:2s;
+	-webkit-animation-delay: 2s;
+}
+
+#C{
+	animation-delay:4s;
+	-webkit-animation-delay: 4s;
+}
+
+#D{
+	animation-delay:6s;
+	-webkit-animation-delay: 6s;
+}
+	
+
+@keyframes mymove
+	{
+	from {left:-5%;}	
+	to {left:100%;}		
+	}
+
+@-moz-keyframes mymove /* Firefox */
+	{
+	from {left:-5%;}
+	to {left:100%;}
+	}
+
+@-webkit-keyframes mymove /* Safari, Chrome, and Webkit Opera */
+	{
+	from {left:-5%;}
+	to {left:100%;}
+	}
+
+@-o-keyframes mymove /* Presto Opera */
+	{
+	from {left:-5%;}
+	to {left:100%;}
+	}
